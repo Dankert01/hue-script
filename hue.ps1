@@ -115,4 +115,6 @@ Add-Schedule "Sleep Bedroom" $midnight.AddHours(7).toString("s") 3 $sleepCommand
 
 # OUTPUT SCHEDULES TO FILE
 $log = Send-Web-Request "http://$hueBridgeIP/api/$allowedHash"
-$log > "hueschedules.log"
+$log > "C:/hueschedules.log"
+$logPrettyPrint = Send-Web-Request "http://jsonprettyprint.com/json-pretty-printer.php" "POST" "json_data=$log"
+$logPrettyPrint > "C:/hueschedules.html"
